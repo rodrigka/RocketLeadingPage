@@ -1,10 +1,8 @@
 
-
-
-
 .container {
     max-width: 1100px;
 }
+
 header {
     background-image: url('assets/fond1.png');
     background-size: cover;
@@ -13,10 +11,19 @@ header {
     position: relative;
 }
 
-.logoname{
+.logoname, .logo{
     width: 100%;
     position: relative;
-    top: auto; left: 10px;
+    animation: mymove 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.5s;
+}
+
+@keyframes mymove {
+  from {top: 40px;right: 90px;}
+  to {top: 0px;right: 0px;}
+  0%{opacity: 0;}
+  100%{opacity: 1;}
 }
 
 .soustitre{
@@ -35,6 +42,17 @@ header {
     position: absolute;
     top: 55%;
     transform: translateY(-50%);
+    animation-name: titleanim;
+    animation-duration: 1s;  
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s
+}
+
+@keyframes titleanim {
+    from {top: 450px;}
+    to {top: 340px; color:#2094C6;}
+    0%{opacity: 0;}
+    100%{opacity: 1;}
 }
 
 .btn {
@@ -43,12 +61,29 @@ header {
     border-style: hidden;
     color: white;
     font-weight: bold;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .logo{
     width: 60px;
+}
+
+#apropos{
+    position: relative;
+    animation: moveap 1s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes moveap {
+    from {left: 60px;}
+    to {left: 0px;}
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+#nosprest{
+    position: relative;
+    animation: moveap 1s;
+    animation-timing-function: ease-in-out;
 }
 
 #row-prestations{
@@ -173,14 +208,68 @@ footer a{
     opacity: 0.8;
 }
 
-@media(max-width:992px){
+@media screen and (max-width:992px){
     .navbar-nav{
-        background-color: #5080E5;
+        background-color:#2094C6;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;    
         padding-left: 20px;    
+        font-size: 20px;
+    }
+
+    .logoname{
+        max-width: 80%;
+        margin-top: 30px;
+    }
+
+    header{
+        background-image: url('assets/fondp1.png');
+    }
+
+
+    #row-prestations{
+        background-image: url('assets/fondpetit.png');
+    }
+
+    #row-contact{
+        background-image: url('assets/fondpetitc.png');
+    }
+
+    .titre{
+        margin-top: 40px;
+        width: 95%;
+        text-align: center;
+    }
+
+    #row-prestations{
+        background-image: url('assets/fondpetitf.png');
     }
 }
+
+@media screen and (max-width:610px){
+    .logoname{
+        max-width: 70%;
+        margin-top: 30px;
+    }
+}    
+
+@media screen and (max-width:440px){
+
+    .logoname{
+        max-width: 65%;
+        margin-top: 30px;
+        margin-left: 0;
+    }
+    .col p, ul{
+        font-size: smaller;
+    }
+    #row-prestations col{
+        display: block;
+        
+    }
+    
+}
+
 nav{
     z-index: 100;
 }
